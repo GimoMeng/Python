@@ -9,7 +9,7 @@ def move(n, a, b, c):
         move(n-1, a, c, b)
         print(a, '-->', c)
         move(n-1, b, a, c)
-move(3, 'A', 'B', 'C')
+move(3, 'A', 'B', 'C') 
 #当 n=3  a=’A’ b=’B’ c=’C’时
 #分析：
 #i.    Move(3,’A’,’B’,’C’)
