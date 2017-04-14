@@ -9,3 +9,18 @@ print(favorites)
 name1 = 'song'
 name2 = 'meng'
 print('Hello,%s' % name1+name2,'!')
+
+
+
+
+#用turtle模块的Pen函数来创建一个新画布，然后画一个长方形
+import turtle
+t = turtle.Pen()
+t.forward(100)
+t.left(90)
+t.forward(50)
+t.left(90)
+t.forward(100)
+t.left(90)
+t.forward(50)
+t.left(90)
