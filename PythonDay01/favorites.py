@@ -24,3 +24,15 @@ t.forward(100)
 t.left(90)
 t.forward(50)
 t.left(90)
+
+
+
+#创建另一个画布，这次画一个三角形.
+import turtle
+t = turtle.Pen()
+t.forward(100)
+t.left(120)
+t.forward(100)
+t.left(120)
+t.forward(100)
+t.left(120)
