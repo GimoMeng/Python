@@ -66,3 +66,13 @@ t.forward(20)
 t.left(90)
 t.forward(20)
 t.down()
+
+
+
+#你是富翁么
+money = 2000
+if money > 1000:
+    print('I\'m rich!!')
+else:
+    print('I\'m not rich!!')
+    print('But I might be later...')
