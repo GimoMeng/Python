@@ -39,6 +39,7 @@ t.left(120)
 
 
 
+
 #写个程序来画出没有角的方格
 import turtle
 t = turtle.Pen()
@@ -76,3 +77,20 @@ if money > 1000:
 else:
     print('I\'m not rich!!')
     print('But I might be later...')
+
+
+
+#
+hugehairypants = ['huge','hairy','pants']
+for i in hugehairypants:
+    print(i)
+    for j in hugehairypants:
+	    print (j)
+
+
+
+#
+for x in range(0,20):
+    print('Hello %s' % x)
+    if x < 9:
+        break
