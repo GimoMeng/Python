@@ -200,3 +200,14 @@ for x in range(0,20):
 ingredients = ['snails','leeches','gorilla belly-button lint','caterpillar eyebrows','centipede toes']
 for x in range(0,5):
     print(x + 1,ingredients[x])
+
+
+
+
+#月球上你的体重是在地球上的16.5%，假设你每年增长1公斤，打印未来15年你的体重状况
+weight = 9999       #体重
+increment = 1       #体重年增量
+coefficient = 0.165 #体重转换系数
+
+for x in range(1, 16):
+    print("%d years later: %f" % (x, (weight + increment * x) * coefficient))
