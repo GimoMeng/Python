@@ -195,6 +195,19 @@ for x in range(0,20):
 
 
 
+#如果你的年龄是偶数，从2开始打印知道你的年龄为止，如果是你的年龄是奇数，从1开始
+age = 23
+
+start = 2
+if age % 2 != 0:
+    start = 1
+
+for x in range(start, age + 2, 2):
+    print(x)
+
+
+
+
 #创建一个列表，它包含五种不同的制作三明治的材料
 #创建一个循环来打印这个列表（包括序号）
 ingredients = ['snails','leeches','gorilla belly-button lint','caterpillar eyebrows','centipede toes']
