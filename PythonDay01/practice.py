@@ -126,6 +126,7 @@ time.sleep(5)
 
 
 
+#第五章用if和else来提问
 #你是富翁么
 money = 2000
 if money > 1000:
@@ -175,6 +176,7 @@ elif ninjas < 50:
 
 
 
+#循环
 #
 hugehairypants = ['huge','hairy','pants']
 for i in hugehairypants:
@@ -224,3 +226,52 @@ coefficient = 0.165 #体重转换系数
 
 for x in range(1, 16):
     print("%d years later: %f" % (x, (weight + increment * x) * coefficient))
+
+
+
+
+#第七章使用函数和模块来重用你的代码
+#用函数计算题目6.4中你的体重（参数为当前体重和体重的年增量）
+def func_MoonWeight(weight, increment):
+    coefficient = 0.165 #体重转换系数
+    for x in range(1, 16):
+        print("%d years later: %f" % (x, (weight + increment * x) * coefficient))
+
+func_MoonWeight(30, 0.25)
+
+
+
+
+#用函数计算题目6.4中你的体重（参数为当前体重、体重的年增量和统计的年数）
+def func_MoonWeight(weight, increment, deadline):
+    coefficient = 0.165 #体重转换系数
+    for x in range(1, deadline + 1):
+        print("%d years later: %f" % (x, (weight + increment * x) * coefficient))
+
+func_MoonWeight(90, 0.25, 5)
+
+
+
+
+#用函数计算6.4中你的体重，当前体重、体重的年增量和统计年数都由输入给出
+import sys
+
+def func_MoonWeight(weight, increment, deadline):
+    coefficient = 0.165 #体重转换系数
+    for x in range(1, deadline + 1):
+        print("%d years later: %f" % (x, (weight + increment * x) * coefficient))
+
+#读取信息并调用函数
+print("Please enter your current Earth weight")
+para1 = int(sys.stdin.readline())
+print("Please enter the amount your weight might increase each year")
+para2 = float(sys.stdin.readline())
+print("Please enter the number of years")
+para3 = int(sys.stdin.readline())
+
+func_MoonWeight(para1, para2, para3)
+
+
+
+
+#
