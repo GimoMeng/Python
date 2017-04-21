@@ -274,4 +274,35 @@ func_MoonWeight(para1, para2, para3)
 
 
 
-#
+#第八章：如何使用类和对象
+#给Giraffes类增加函数让长颈鹿左、右、前、后四只脚移动，通过dance函数打印一整套舞步
+class Giraffes():
+#函数：左脚向前
+    def funcLeftFootForward(self):
+        print('left foot forward')
+#函数：右脚向前
+    def funcRightFootForward(self):
+        print('right foot forward')
+#函数：左脚向后
+    def funcLeftFootBack(self):
+        print('left foot back')
+#函数：右脚向后
+    def funcRightFootBack(self):
+        print('right foot back')
+#函数：原地不动
+    def funcStand(self):
+        print()
+#函数：跳舞
+    def funcDance(self):
+        self.funcLeftFootForward()
+        self.funcLeftFootBack()
+        self.funcRightFootForward()
+        self.funcRightFootBack()
+        self.funcLeftFootBack()
+        self.funcStand()
+        self.funcRightFootBack()
+        self.funcRightFootForward()
+        self.funcLeftFootForward()
+
+reginald = Giraffes()
+reginald.funcDance()
