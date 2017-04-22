@@ -360,3 +360,17 @@ b = abs(-10) + -10
 print(b)
 #a是数学算式“10+|-10|=10+10”，结果为20
 #b是数学算式“|-10|+(-10)=10-10”，结果为0
+
+
+
+
+#拷贝文件，这里采用先读取信息再写入到新文件的方式
+#读取文件内容
+test_file1 = open("d:\\input.txt")
+text = test_file1.read()
+test_file1.close()
+
+#将读取到的内容写入到一个新文件
+test_file2 = open("d:\\output.txt", 'w')
+test_file2.write(text)
+test_file2.close()
