@@ -366,7 +366,7 @@ print(b)
 
 #拷贝文件，这里采用先读取信息再写入到新文件的方式
 #读取文件内容
-test_file1 = open("d:\\input.txt")
+test_file1 = open("d:\\1.txt")
 text = test_file1.read()
 test_file1.close()
 
