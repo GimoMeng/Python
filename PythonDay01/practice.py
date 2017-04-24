@@ -415,3 +415,25 @@ print(car1.wheels) #这里打印什么？ (3)
 #第二个print打印3，因为car3是从car1通过copy得到的，和car1不是一个对象，修改car3不会同时改变car1
 
 
+
+
+
+#将一个信息用pickle序列化并保存到一个*.dat文件中，再从该文件中读取信息反序列化并打印
+import pickle
+
+info = {
+    'Name' : 'Tsybius',
+    'Age' : 23,
+    'hobby' : ['hobby1', 'hobby2', 'hobby3']
+}
+
+#序列化写入文件
+outputfile = open('d:\\save.dat', 'wb')
+pickle.dump(info, outputfile)
+outputfile.close()
+
+#反序列化读取文件
+inputfile = open('d:\\save.dat', 'rb')
+info2 = pickle.load(inputfile)
+inputfile.close
+print(info2)
