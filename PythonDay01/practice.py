@@ -364,6 +364,21 @@ print(b)
 
 
 
+
+#尝试用dir和help找出如何把字符串拆成单词
+#dir函数可以返回关于任何值的相关信息
+#help函数可以返回关于其参数中描述函数的帮助信息
+dir("hello world")
+help("hello world".split)
+string = '''this if is you not are a reading very this good then way
+to you to have hide done a it message wrong'''
+
+for x in string.split():
+    print(x)
+
+
+
+
 #拷贝文件，这里采用先读取信息再写入到新文件的方式
 #读取文件内容
 test_file1 = open("d:\\1.txt")
