@@ -437,3 +437,19 @@ inputfile = open('d:\\save.dat', 'rb')
 info2 = pickle.load(inputfile)
 inputfile.close
 print(info2)
+
+
+
+
+
+#第十一章：高级海龟作图
+#画八边形
+import time
+import turtle
+
+t = turtle.Pen()
+for x in range(1, 9):
+    t.forward(100)
+    t.left(45)
+
+time.sleep(5)
