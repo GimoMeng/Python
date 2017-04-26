@@ -453,3 +453,28 @@ for x in range(1, 9):
     t.left(45)
 
 time.sleep(5)
+
+
+
+
+#画一个填好色的带轮廓的八边形
+import time
+import turtle
+
+t = turtle.Pen()
+
+#绘制实心八边形（红色）
+t.color(1, 0, 0)
+t.begin_fill()
+for x in range(1, 9):
+    t.forward(100)
+    t.left(45)
+t.end_fill()
+
+#为八边形描边（黑色）
+t.color(0, 0, 0)
+for x in range(1, 9):
+    t.forward(100)
+    t.left(45)
+
+time.sleep(5)
