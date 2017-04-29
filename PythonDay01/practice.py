@@ -478,3 +478,34 @@ for x in range(1, 9):
     t.left(45)
 
 time.sleep(5)
+
+
+
+
+
+#第十二章：用tkinter画高级图形
+#在屏幕上画满三角形，位置随机、颜色随机
+from tkinter import *
+import random
+
+color = ["green", "red", "blue", "orange", "yellow",
+         "pink", "purple", "violet", "magenta", "cyan"]
+
+tk = Tk()
+canvas = Canvas(tk, width = 400, height = 400)
+canvas.pack()
+
+#函数：创建随机位置、随机颜色的三角形
+def funcRandomTriangle():
+    x1 = random.randrange(400)
+    y1 = random.randrange(400)
+    x2 = random.randrange(400)
+    y2 = random.randrange(400)
+    x3 = random.randrange(400)
+    y3 = random.randrange(400)
+    fillcolor = random.randrange(10)
+    canvas.create_polygon(x1, y1, x2, y2, x3, y3,
+        fill = color[fillcolor], outline = "black")
+
+for x in range(0, 15):
+    funcRandomTriangle()
