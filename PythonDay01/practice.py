@@ -548,3 +548,23 @@ for x in range(0, 60):
     canvas.move(1, 0, -5)
     tk.update()
     time.sleep(0.05)
+
+
+
+
+#移动照片（gif格式）
+import time
+from tkinter import *
+
+tk = Tk()
+canvas = Canvas(tk, width = 400, height = 400)
+canvas.pack()
+
+myimg = PhotoImage(file = "d:\\temp.gif")
+canvas.create_image(0, 0, anchor = NW, image = myimg)
+
+#向右移动
+for x in range(0, 25):
+    canvas.move(1, 5, 0)
+    tk.update()
+    time.sleep(0.05)
