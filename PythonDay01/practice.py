@@ -560,7 +560,7 @@ tk = Tk()
 canvas = Canvas(tk, width = 400, height = 400)
 canvas.pack()
 
-myimg = PhotoImage(file = "d:\\temp.gif")
+myimg = PhotoImage(file = "d:\\1.gif")
 canvas.create_image(0, 0, anchor = NW, image = myimg)
 
 #向右移动
