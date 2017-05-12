@@ -69,7 +69,7 @@ canvas.pack()
 tk.update()
 
 paddle = Paddle(canvas, 'blue')
-ball = Ball(canvas, 'red')
+ball = Ball(canvas,paddle,'red')
 
 while 1:
     if ball.hit_bottom == False:
