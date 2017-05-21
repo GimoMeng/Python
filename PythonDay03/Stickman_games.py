@@ -40,7 +40,7 @@ class Coords:
         self.x2 = x2
         self.y2 = y2
 
-    def within_x(co1,co2):
+def within_x(co1,co2):
         if co1.x1 > co2.x1 and co1.x1 < co2.x2:
             return True
         elif co1.x2 > co2.x1 and co1.x2 < co2.x2:
