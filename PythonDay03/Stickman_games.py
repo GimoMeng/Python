@@ -41,14 +41,11 @@ class Coords:
         self.y2 = y2
 
 def within_x(co1,co2):
-        if co1.x1 > co2.x1 and co1.x1 < co2.x2:
-            return True
-        elif co1.x2 > co2.x1 and co1.x2 < co2.x2:
-            return True
-        elif co2.x1 > co1.x1 and co2.x1 < co1.x2:
-            return True
-        elif co2.x2 > co1.x1 and co2.x2 < co1.x1:
-            return True
+        if co1.x1 > co2.x1 and co1.x1 < co2.x2 \
+               or (co1.x2 > co2.x1 and co1.x2 < co2.x2) \
+               or (co2.x1 > co1.x1 and co2.x1 < co1.x2) \
+               or (co2.x2 > co1.x1 and co2.x2 < co1.x1):
+           return True
         else:
             return False
 g = Game()
