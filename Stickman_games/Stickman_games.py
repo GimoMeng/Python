@@ -93,5 +93,6 @@ class Sprite:
         pass
     def coords(self):
         return self.coordinates
+    
 g = Game()
 g.mainloop()
