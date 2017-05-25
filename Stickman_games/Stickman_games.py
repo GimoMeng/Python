@@ -28,7 +28,7 @@ class Game:
         while 1 :
             if self.running == True:
                 for sprite in self.sprites:
-                    sprites.move()
+                    sprite.move()
             self.tk.update_idletasks()
             self.tk.update()
             time.sleep(0.01)
@@ -95,13 +95,13 @@ class Sprite:
         return self.coordinates
 
 
-class PlatgormSprite(Sprite):
+class PlatformSprite(Sprite):
     def __init__(self,game,photo_image,x,y,width,height):
         Sprite.__init__(self,game)
         self.photo_image = photo_image
         self.image = game.canvas.create_image(x,y,image=self.photo_image,anchor="nw")
         self.coordinates = Coords(x,y,x + width,y + height)
 g = Game()
-platform1 = PlatformSprite(g,PhotoImage(file="platform1.gif"),0,480,100,10)
+platform1 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),0,480,100,10)
 g.sprites.append(platform1)
 g.mainloop()
