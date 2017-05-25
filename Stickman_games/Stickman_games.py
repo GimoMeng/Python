@@ -102,4 +102,6 @@ class PlatgormSprite(Sprite):
         self.image = game.canvas.create_image(x,y,image=self.photo_image,anchor="nw")
         self.coordinates = Coords(x,y,x + width,y + height)
 g = Game()
+platform1 = PlatformSprite(g,PhotoImage(file="platform1.gif"),0,480,100,10)
+g.sprites.append(platform1)
 g.mainloop()
