@@ -123,6 +123,17 @@ class StickFigureSprite(Sprite):
         self.jump_count = 0
         self.last_time = time.time()
         self.coordinates = Coords()
+        game.canvas.bind_all('<KeyPress-Left>',self.turn_left)
+        game.canvas.bind_all('<KeyPress-Right>',self.turn_right)
+        game.canvas.bind_all('<space>',self.jump)
+        
+    def turn_left(self, evt):
+        if self.y == 0:
+            self.x = -2
+
+    def turn_right(self, evt):
+        if self.y == 0:
+            self.x = -2
 g = Game()
 platform1 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),0,480,100,10)
 platform2 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),150,440,100,10)
