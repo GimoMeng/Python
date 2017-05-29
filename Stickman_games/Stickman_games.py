@@ -101,6 +101,21 @@ class PlatformSprite(Sprite):
         self.photo_image = photo_image
         self.image = game.canvas.create_image(x,y,image=self.photo_image,anchor="nw")
         self.coordinates = Coords(x,y,x + width,y + height)
+
+class StickFigureSprite(Sprite):
+    def __init__(self,game):
+        Sprite.__init__(self,game)
+        self.images_left = [
+            PhotoImage(file="E:/Python/learning/Stickman_games/stick-L1.gif"),
+            PhotoImage(file="E:/Python/learning/Stickman_games/stick-L2.gif"),
+            PhotoImage(file="E:/Python/learning/Stickman_games/stick-L3.gif")
+            ]
+        self.images_right = [
+            PhotoImage(file="E:/Python/learning/Stickman_games/stick-R1.gif"),
+            PhotoImage(file="E:/Python/learning/Stickman_games/stick-R2.gif"),
+            PhotoImage(file="E:/Python/learning/Stickman_games/stick-R3.gif")
+            ]
+        self.image = game.canvas.create_image(200,470,image=self.images_left[0],anchor='nw')
 g = Game()
 platform1 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),0,480,100,10)
 platform2 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),150,440,100,10)
