@@ -161,7 +161,10 @@ class StickFigureSprite(Sprite):
                 self.game.canvas.itemconfig(self.image,image=self.images_right[2])
             else:
                 self.game.canvas.itemconfig(self.image,image=self.images_right[self.current_image])
-                
+
+    def coords(self):
+        xy = self.game.canvas.coords(self.image)
+        self.
 g = Game()
 platform1 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),0,480,100,10)
 platform2 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),150,440,100,10)
