@@ -150,6 +150,18 @@ class StickFigureSprite(Sprite):
                     self.current_image_add = -1
                 if self.current_image <= 0:
                     self.current_image_add = 1
+        if self.x < 0:
+            if self.y != 0:
+                self.game.canvas.itemconfig(self.image,image=self.images_left[2])
+            else:
+                self.game.canvas.itemconfig(self.image,image=self.images_left[self.current_image])
+
+        elif self.x > 0:
+            if self.y != 0:
+                self.game.canvas.itemconfig(self.image,image=self.images_right[2])
+            else:
+                self.game.canvas.itemconfig(self.image,image=self.images_right[self.current_image])
+                
 g = Game()
 platform1 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),0,480,100,10)
 platform2 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),150,440,100,10)
