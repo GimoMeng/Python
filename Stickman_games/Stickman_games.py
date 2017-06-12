@@ -169,6 +169,15 @@ class StickFigureSprite(Sprite):
         self.coordinates.x2[0] + 27
         self.coordinates.y2[1] + 30
         return self.coordinates
+
+    def move(self):
+        self.animate()
+        if self.y < 0:
+            self.jump_count += 1
+            if self.jump_count > 20:
+                self.y = 4
+        if self.y > 0:
+            self.jump_count -= 1
 g = Game()
 platform1 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),0,480,100,10)
 platform2 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),150,440,100,10)
