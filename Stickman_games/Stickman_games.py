@@ -178,6 +178,50 @@ class StickFigureSprite(Sprite):
                 self.y = 4
         if self.y > 0:
             self.jump_count -= 1
+        co = self.coords()
+        left = True
+        right = True
+        top = True
+        bottom = True
+        falling = True
+        if self.y > 0 and co.y2 >= self.game.canvas_height:
+            self.y = 0
+            bottom = False
+        elif self.y < 0 and co.y1 <= 0:
+            self.y = 0
+            top = False
+        if self.x > 0 and co.x2 >= self.game.canvas_width:
+            self.x = 0
+            right = False
+        elif self.x < 0 and co.x1 <= 0:
+            self.x = 0
+            left = False
+        for sprite in self.game.sprites:
+            if sprite == self:
+                continue
+            sprite_co = sprite.coords()
+            if top and self.y < 0 and collided_top(co,sprite_co):
+                self.y = -self.y
+                top = False
+            if bottom and self.y > 0 and collided_bottom(self.y,co,sprite_co):
+                self.y = sprite_co.y1 - co.y2
+                if self.y < 0:
+                    self.y = 0
+                bottom = False
+                top = False
+            if bottom and falling and self.y == 0 and co.y2 < self.game.canvas_height and collided_bottom(1,co,sprite_co):
+                falling = False
+
+        if left and self.x < 0 and collided_left(co,sprite_co):
+            self.x = 0
+            left = False
+        if right and self.x > 0 and collided_right(co,sprite_co):
+            self.x = 0
+            right = False
+        if falling and bottom and self.y == 0 and co.y2 < self.game.canvas_height:
+            self.y = 4
+        self.game.canvas.move(self.image,self.x,self.y)
+                                   
 g = Game()
 platform1 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),0,480,100,10)
 platform2 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),150,440,100,10)
@@ -199,4 +243,7 @@ g.sprites.append(platform7)
 g.sprites.append(platform8)
 g.sprites.append(platform9)
 g.sprites.append(platform10)
+
+sf = StickFigureSprite(g)
+g.sprites.append(sf)
 g.mainloop()
