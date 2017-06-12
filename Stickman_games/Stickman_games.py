@@ -41,7 +41,7 @@ class Coords:
         self.y2 = y2
 
 def within_x(co1,co2):
-    if co1.x1 > co2.x1 and co1.x1 < co2.x2 \
+    if (co1.x1 > co2.x1 and co1.x1 < co2.x2) \
            or (co1.x2 > co2.x1 and co1.x2 < co2.x2) \
            or (co2.x1 > co1.x1 and co2.x1 < co1.x2) \
            or (co2.x2 > co1.x1 and co2.x2 < co1.x1):
@@ -50,7 +50,7 @@ def within_x(co1,co2):
         return False
 
 def within_y(co1,co2):
-    if co1.y1 > co2.y1 and co1.y1 < co2.y2 \
+    if (co1.y1 > co2.y1 and co1.y1 < co2.y2) \
            or (co1.y2 > co2.y1 and co1.y2 < co2.y2) \
            or (co2.y1 > co1.y1 and co2.y1 < co1.y2) \
            or (co2.y2 > co1.y1 and co2.y2 < co1.y1):
@@ -88,7 +88,6 @@ class Sprite:
         self.game = game
         self.endgame = False
         self.coordinates = None
-
     def move(self):
         pass
     def coords(self):
@@ -133,7 +132,7 @@ class StickFigureSprite(Sprite):
 
     def turn_right(self, evt):
         if self.y == 0:
-            self.x = -2
+            self.x = 2
 
     def jump(self, evt):
         if self.y == 0:
@@ -143,7 +142,6 @@ class StickFigureSprite(Sprite):
     def animate(self):
         if self.x != 0 and self.y == 0:
             if time.time() - self.last_time > 0.1:
-
                 self.last_time = time.time()
                 self.current_image += self.current_image_add
                 if self.current_image >= 2:
@@ -155,7 +153,6 @@ class StickFigureSprite(Sprite):
                 self.game.canvas.itemconfig(self.image,image=self.images_left[2])
             else:
                 self.game.canvas.itemconfig(self.image,image=self.images_left[self.current_image])
-
         elif self.x > 0:
             if self.y != 0:
                 self.game.canvas.itemconfig(self.image,image=self.images_right[2])
@@ -164,10 +161,10 @@ class StickFigureSprite(Sprite):
 
     def coords(self):
         xy = self.game.canvas.coords(self.image)
-        self.coordinates.x1[0]
-        self.coordinates.y1[1]
-        self.coordinates.x2[0] + 27
-        self.coordinates.y2[1] + 30
+        self.coordinates.x1 = xy[0]
+        self.coordinates.y1 = xy[1]
+        self.coordinates.x2 = xy[0] + 27
+        self.coordinates.y2 = xy[1] + 30
         return self.coordinates
 
     def move(self):
@@ -211,17 +208,26 @@ class StickFigureSprite(Sprite):
                 top = False
             if bottom and falling and self.y == 0 and co.y2 < self.game.canvas_height and collided_bottom(1,co,sprite_co):
                 falling = False
-
         if left and self.x < 0 and collided_left(co,sprite_co):
             self.x = 0
             left = False
+            if sprite.endgame:
+                self.game.running = False
         if right and self.x > 0 and collided_right(co,sprite_co):
             self.x = 0
             right = False
+            if sprite.endgame:
+                self.game.running = False
         if falling and bottom and self.y == 0 and co.y2 < self.game.canvas_height:
             self.y = 4
         self.game.canvas.move(self.image,self.x,self.y)
-                                   
+class DoorSprite(Sprite):
+    def __init__(self,game,photo_image,x,y,width,height):
+        Sprite.__init__(self,game)
+        self.photo_image = photo_image
+        self.image = game.canvas.create_image(x,y,image=self.photo_image,anchor='nw')
+        self.coordinates = Coords(x,y,x + (width / 2), y + height)
+        self.endgame = True
 g = Game()
 platform1 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),0,480,100,10)
 platform2 = PlatformSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/platform1.gif"),150,440,100,10)
@@ -243,7 +249,8 @@ g.sprites.append(platform7)
 g.sprites.append(platform8)
 g.sprites.append(platform9)
 g.sprites.append(platform10)
-
+door = DoorSprite(g,PhotoImage(file="E:/Python/learning/Stickman_games/door1.gif"),45,30,40,35)
+g.sprites.append(door)
 sf = StickFigureSprite(g)
 g.sprites.append(sf)
 g.mainloop()
